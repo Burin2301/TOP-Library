@@ -1,0 +1,32 @@
+form{
+    display: grid;
+    grid-template-rows: repeat(4 1fr);
+    gap: 20px;
+    width: 90%;
+    place-content: center;
+}
+body{
+    background-color: rgba(66, 161, 161, 0.285);
+    
+}
+.bookCard{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 2px 2px black;
+    border-radius: 10px;
+}
+#removeBook{
+    width: 20%;
+    height: 20%;
+    border-radius: 10px;
+    padding: 10px 5px;
+    background-color: rgba(8, 43, 43, 0.285);
+    box-shadow: 2px 2px black;
+}
+
+
+.hidden{
+    display: none;
+}
