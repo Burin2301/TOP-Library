@@ -21,7 +21,7 @@ function addBookToLibrary(title,author,pages,read, indexNumber){
     if(form.title.value == '' | form.author.value == ''| form.pages.value == ''){
         alert('Enter the information of the book, please')
 
-    }else if(!form.title.value == '' | !form.author.value| !form.pages.value){
+    }else if(!form.title.value == '' | !form.author.value == ''| !form.pages.value == ''){
         const bookTitle = form.title.value
         const bookAuthor = form.author.value
         const bookPages = form.pages.value
