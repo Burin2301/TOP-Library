@@ -3,15 +3,24 @@ const form = document.querySelector('#form')
 const bookContainer = document.querySelector('#books')
 const myLibrary = []
 
+class Book {
+    constructor (title, author, pages, read, indexNumber){
+        this.title = title,
+        this.author = author,
+        this.pages = pages,
+        this.read = read,
+        this.indexNumber = indexNumber
+    }
 
-
-function book(title, author, pages, read, indexNumber){
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.read = read,
-    this.indexNumber = indexNumber
 }
+
+// function book(title, author, pages, read, indexNumber){
+//     this.title = title,
+//     this.author = author,
+//     this.pages = pages,
+//     this.read = read,
+//     this.indexNumber = indexNumber
+// }
 
 btn.addEventListener('click', addBookToLibrary)
 
@@ -27,9 +36,9 @@ function addBookToLibrary(title,author,pages,read, indexNumber){
         const bookPages = form.pages.value
         const bookRead = form.isRead.checked ? "Yes" : "No"
         const bookIndex = myLibrary.length+1
-    
-        const newBook = new book(bookTitle, bookAuthor,bookPages,bookRead, bookIndex)
-    
+
+        const newBook = new Book(bookTitle, bookAuthor,bookPages,bookRead, bookIndex)
+
         myLibrary.push(newBook)
         form.reset()
 
@@ -59,13 +68,13 @@ function showBook(a){
     </div>
     `
     bookContainer.appendChild(bookDiv)
-    
+
     const removeBtn = document.querySelector(`#removeBook${a.indexNumber}`)
-    
-    
+
+
     const cardContainer = document.querySelector(`#bookCard${a.indexNumber}`)
     const indexbook = parseInt(cardContainer.dataset.index)-1
-    
+
     removeBtn.addEventListener('click', ()=>removeDiv(cardContainer, indexbook))
 
     const readBtn = document.querySelector(`#changeRead${a.indexNumber}`)
@@ -74,7 +83,7 @@ function showBook(a){
         changeRead(indexbook)
     })
 }
-        
+
 function removeDiv(a, b){
     a.remove()
     myLibrary.splice(b,1)
